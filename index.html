@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #4b7f46;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
+        .header {
+            background-color: #2e5c2e;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            position: absolute;
+            top: 50px;
+            left: 170px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        form input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .flash {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .flash-warning {
+            background-color: #d21d2caa;
+            color: #431015;
+        }
+
+        .flash-success {
+            background-color: #dbf7e1;
+            color: #12822c;
+        }
+
+        .flash-fail {
+            background-color: #fbe1e3;
+            color: #b01626; 
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .link a {
+            color: #ed5bc6;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    Need Help Meal Planning?
+</div>
+<div class="main-conten">
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h1>Login</h1>
+        <p>Please enter your email and password to login</p>
+        <form action="login" method="POST">
+            <input type="text" name="email" id="email" placeholder="Email" required />
+            <input type="password" name="password" id="password" placeholder="Password" required />
+            <input type="submit" name="submit" value="Login" />
+        </form>
+        <div class="link">
+            <a href="/signup">Don't have an account? Sign up here</a>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
