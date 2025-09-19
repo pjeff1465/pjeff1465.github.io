@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- external stylesheet link CSS code -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+
+<body> 
+  <header>
+    <div class="about_me_header">
+      <h1>About Me!</h1>
+    </div>
+    
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="links.html">Links / Resume</a>
+      <a href="about_me.html">About me</a>
+    </nav>
+  </header>
+
+  <div class="about_me_background">
+      <main>
+        <p>I love art!</p>
+        <!-- You can fill this in later -->
+        <p>I love motorcycles!</p>
+      </main>
+  </div>
+
+  <input type="color" id="colorPicker" value="#000000">
+  <input type="range" id="brushSize" min="1" max="50" value="5">
+  <canvas id="drawArea" width="800" height="600"></canvas>
+  <button onclick="ctx.clearRect(0, 0, canvas.width, canvas.height)">Clear</button>
+  <button onclick="downloadArt()">Save</button>
+
+  <!-- JavaScript Link -->
+  <script src="script.js"></script>
+</body>
+</html>

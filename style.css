@@ -17,6 +17,36 @@ body {
     font-size: 40px;
 }
 
+/* ================== About me Page ==================== */
+.about_me_background {
+    margin: 0; /* removes default white space */
+    padding: 0;
+
+    background-image: url('/images/background.jpg'); /* use an image file, not a PDF */
+    background-size: contain;       /* make it fill the whole page (cover) */
+    background-repeat: no-repeat; /* prevent tiling */
+    background-position: center;  /* center the image */
+    background-attachment: scroll;
+
+    background-color: black;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+}
+
+.about_me_header {
+    text-align: center;
+    color: rgb(255, 101, 214);
+    text-decoration: bold;
+}
+
+#drawArea {
+    border: 4px solid #333;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+}
+
+/* ======================= NAV BAR ====================== */
 /* Navigation Bar */
 /* Style the top navigation bar */
 .navbar {
