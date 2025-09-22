@@ -19,8 +19,49 @@ body {
 
 /* ===================== PROJECTS PAGE ====================== */
 .writeez {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
     text-align: center;
-}
+  }
+  
+  .writeez img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+  }
+  
+  /* Styling for tablets */
+  @media (max-width: 1024px) {
+    .writeez {
+      font-size: 16px;
+      padding: 0 20px;
+    }
+  
+    .writeez img {
+      max-width: 100%;
+    }
+  }
+  
+  /* Styling for mobile phones */
+  @media (max-width: 600px) {
+    .writeez {
+      font-size: 14px;
+      padding: 0 15px;
+    }
+  
+    .writeez img {
+      max-width: 100%;
+      margin: 15px 0;
+    }
+  
+    .writeez p {
+      line-height: 1.4;
+    }
+  }
 
 /* ===================== PROJECTS PAGE ====================== */
 
