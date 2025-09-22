@@ -3,8 +3,8 @@ function showImage() {
 }
 
 // ========== Interactive Drawing Canvas =================
-const canvas = document.getElementById('drawArea');
-const ctx = canvas.getContext('2d')
+window.canvas = document.getElementById('drawArea');
+window.ctx = canvas.getContext('2d')
 const colorPicker = document.getElementById('colorPicker');
 const brushSize = document.getElementById('brushSize');
 
@@ -23,9 +23,7 @@ function endPosition() {
 function draw(e) {
     if (!painting) return;
 
-    ctx.lineWidth = 5;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'black';
 
     ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
     ctx.stroke();
@@ -33,7 +31,7 @@ function draw(e) {
     ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
 }
 
-function downloadArt() {
+window.downloadArt = function() {
     const link = document.createElement('a');
     link.download = 'my-drawing.png';
     link.href = canvas.toDataURL();
@@ -41,7 +39,7 @@ function downloadArt() {
 }
 
 colorPicker.addEventListener('change', (e) => {
-    ctx.strokeStyle = e.target.valuel
+    ctx.strokeStyle = e.target.value;
 });
 
 brushSize.addEventListener('input', (e) => {
@@ -50,6 +48,6 @@ brushSize.addEventListener('input', (e) => {
 
 canvas.addEventListener('mousedown', startPosition);
 canvas.addEventListener('mouseup', endPosition)
-canvas.addEventListener('mosemove', draw);
+canvas.addEventListener('mousemove', draw);
 
 
