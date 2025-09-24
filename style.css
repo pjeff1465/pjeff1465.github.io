@@ -17,6 +17,38 @@ body {
     font-size: 40px;
 }
 
+.header p {
+    font-size: 20px;
+}
+
+/* Change display with different screen sizes */
+@media (max-width: 1024px) {
+    .header {
+        padding: 50px;
+        height: auto;
+    }
+    .header h1 {
+        font-size: 32px;
+    }
+    .header p {
+        font-size: 18px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+    .header {
+      padding: 30px 10px;
+      height: auto;
+    }
+    .header h1 {
+      font-size: 24px;
+    }
+    .header p {
+      font-size: 16px;
+    }
+}
+
 /* ===================== PROJECTS PAGE ====================== */
 .writeez {
     max-width: 800px;
@@ -33,6 +65,10 @@ body {
     margin: 20px auto;
     border-radius: 10px;
   }
+
+.writeez h1 {
+    color: #de3ed0;
+}
   
   /* Styling for tablets */
   @media (max-width: 1024px) {
@@ -111,6 +147,8 @@ body {
 .navbar {
     overflow: hidden; /* Hide overflow */
     background-color: #de3ed0; /* Dark background color */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Style the navigation bar links */
@@ -121,6 +159,7 @@ body {
     text-align: center; /* Center the text */
     padding: 14px 20px; /* Add some padding */
     text-decoration: none; /* Remove underline */
+    align-items: center;
 }
 
 /* Right-aligned link */
