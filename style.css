@@ -173,6 +173,16 @@ body {
     color: rgb(181, 181, 181); /* Black text color */
 }
 
+/* ========= NAV BAR - DROPDOWN CONTENT ============================ */
+.tabcontent {
+  display: none;
+}
+
+.tablink {
+  padding: 10px;
+  cursor: pointer;
+}
+
 /* ====== Customize Layout (2-column = side content - main content) */
 /* Ensure proper sizing */
 * {

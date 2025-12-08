@@ -1,8 +1,22 @@
+
+// Global functions so HTML can call 
+
+function showImage() {
+    document.getElementById('myArt').style.display = 'block';
+}
+
+function openTab(name) {
+    document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
+    document.getElementById(name).style.display = 'block';
+
+    //openTab('AI'); // open AI tab by default
+}
+
 window.onload = function () {
 
-    function showImage() {
-        document.getElementById('myArt').style.display = 'block';
-    }
+    // safety check to make sure only run canvas when on the about me page
+    const canvas = document.getElementById('drawArea');
+    if (!canvas) return;   
 
     window.canvas = document.getElementById('drawArea');
     window.ctx = canvas.getContext('2d');
@@ -43,6 +57,10 @@ window.onload = function () {
         link.href = canvas.toDataURL();
         link.click();
     };
+
+    window.clearCanvas = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };    
 
     colorPicker.addEventListener('change', (e) => {
         ctx.strokeStyle = e.target.value;

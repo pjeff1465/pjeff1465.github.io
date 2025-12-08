@@ -24,17 +24,34 @@
     <a href="links.html">Links</a>
   </div>
 
-  <div class="row">
-    <div class="main">
-      <!-- You can fill this in later -->
-      <p>View my latest research paper about the DBRP in quantun computing!</p>
-      <div class="dbrp_paper">
-        <embed src="/images/paper.pdf" type="application/pdf" width="80%" height="1000px" />
+  <div class="tabs">
+    <button class="tablink" onclick="openTab('AI')">AI Refactoring Tool</button>
+    <button class="tablink" onclick="openTab('quan')">Quantum Computing</button>
+  </div>
+  
+  <div id="AI" class="tabcontent">
+    <h2>AI Refactoring Tool</h2>
+    <p>View my paper!</p>
+    <div class="dbrp_paper">
+      <embed src="/images/ai_paper.pdf" type="application/pdf" width="80%" height="1000px" />
+    </div>
+  </div>
+  
+  <div id="quan" class="tabcontent">
+    <h2>Quantum Computing</h2>
+
+    <div class="row">
+      <div class="main">
+        <!-- You can fill this in later -->
+        <p>View my latest research paper about the DBRP in quantun computing!</p>
+        <div class="dbrp_paper">
+          <embed src="/images/paper.pdf" type="application/pdf" width="80%" height="1000px" />
+        </div>
       </div>
     </div>
   </div>
 
   <!-- JavaScript Link -->
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
