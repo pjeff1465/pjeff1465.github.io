@@ -1,28 +1,25 @@
+// ================= Global Functions =================
 
-// Global functions so HTML can call 
-
+// Show hidden image
 function showImage() {
     document.getElementById('myArt').style.display = 'block';
 }
 
+// Open tabs on Research page
 function openTab(name) {
     document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
-    document.getElementById(name).style.display = 'block';
-
-    //openTab('AI'); // open AI tab by default
+    const tab = document.getElementById(name);
+    if (tab) tab.style.display = 'block';
 }
 
+// ================= Canvas Drawing =================
 window.onload = function () {
-
-    // safety check to make sure only run canvas when on the about me page
     const canvas = document.getElementById('drawArea');
-    if (!canvas) return;   
+    if (!canvas) return; // Stop if canvas not present (on other pages)
 
-    window.canvas = document.getElementById('drawArea');
-    window.ctx = canvas.getContext('2d');
-
+    const ctx = canvas.getContext('2d');
     const colorPicker = document.getElementById('colorPicker');
-    const brushSize   = document.getElementById('brushSize');
+    const brushSize = document.getElementById('brushSize');
 
     let painting = false;
 
@@ -40,17 +37,20 @@ window.onload = function () {
         if (!painting) return;
 
         ctx.lineCap = 'round';
+        ctx.strokeStyle = colorPicker.value;
+        ctx.lineWidth = brushSize.value;
 
-        const x = e.clientX - canvas.offsetLeft;
-        const y = e.clientY - canvas.offsetTop;
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
         ctx.lineTo(x, y);
         ctx.stroke();
-
         ctx.beginPath();
         ctx.moveTo(x, y);
     }
 
+    // Make these global for buttons in HTML
     window.downloadArt = function () {
         const link = document.createElement('a');
         link.download = 'my-drawing.png';
@@ -58,19 +58,13 @@ window.onload = function () {
         link.click();
     };
 
-    window.clearCanvas = function() {
+    window.clearCanvas = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    };    
+    };
 
-    colorPicker.addEventListener('change', (e) => {
-        ctx.strokeStyle = e.target.value;
-    });
-
-    brushSize.addEventListener('input', (e) => {
-        ctx.lineWidth = e.target.value;
-    });
-
+    // Event listeners
     canvas.addEventListener('mousedown', startPosition);
     canvas.addEventListener('mouseup', endPosition);
     canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseleave', endPosition);
 };

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Page Title</title>
+  <title>About Me</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- external stylesheet link CSS code -->
   <link rel="stylesheet" href="/style.css" />
 </head>
 
-
-<body> 
+<body>
   <header>
     <div class="about_me_header">
       <h1>About Me!</h1>
     </div>
-    
+
     <div class="navbar">
       <a href="../index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -24,31 +21,33 @@
       <a href="about_me.html">About Me</a>
       <a href="links.html">Links</a>
     </div>
-    
   </header>
 
   <div class="about_me_background">
-      <main>
-        <p>I love art!</p>
-        <!-- You can fill this in later -->
-        <p>I love motorcycles!</p>
-        <img id="myArt" src="/images/drawing.jpg" style="display: none;" />
-        <button onclick="showImage()">Reveal Drawing</button>
-  
-      </main>
+    <main>
+      <p>I love art!</p>
+      <p>I love motorcycles!</p>
+      <img id="myArt" src="/images/drawing.jpg" alt="My Drawing" />
+      <button onclick="showImage()">Reveal Drawing</button>
+    </main>
   </div>
 
   <div class="draw_area">
-    <h1> Draw your own drawing! </h1> 
-    
+    <h1>Draw your own drawing!</h1>
+
+    <label>Color:</label>
     <input type="color" id="colorPicker" value="#000000">
+
+    <label>Brush size:</label>
     <input type="range" id="brushSize" min="1" max="50" value="5">
+
     <canvas id="drawArea" width="800" height="600"></canvas>
+
+    <br><br>
     <button onclick="clearCanvas()">Clear</button>
     <button onclick="downloadArt()">Save</button>
   </div>
 
-  <!-- JavaScript Link -->
   <script src="../script.js"></script>
 </body>
 </html>
