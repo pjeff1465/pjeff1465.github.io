@@ -7,10 +7,15 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 
-<body>
+<body class="about-background">
   <header>
-    <div class="about_me_header">
-      <h1>About Me!</h1>
+    <div class="about_me_background">
+      <main style="position: relative; z-index: 1; text-align: center;">
+        <div class="about_header">
+          Welcome!
+          <p>Take a peak at some of my interests and hobbies to learn more about me</p>
+        </div>
+      </main>
     </div>
 
     <div class="navbar">
@@ -23,31 +28,35 @@
     </div>
   </header>
 
-  <div class="about_me_background">
-    <main>
-      <p>I love art!</p>
-      <p>I love motorcycles!</p>
-      <img id="myArt" src="/images/drawing.jpg" alt="My Drawing" />
-      <button onclick="showImage()">Reveal Drawing</button>
-    </main>
-  </div>
+  <div id="pdf-container">
+    <canvas id="pdf-render"></canvas>
+    <div class="pdf-controls">
+      <button onclick="prevPage()">Previous</button>
+      <span id="page-num"></span> / <span id="page-count"></span>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>  
 
   <div class="draw_area">
     <h1>Draw your own drawing!</h1>
 
-    <label>Color:</label>
-    <input type="color" id="colorPicker" value="#000000">
+    <div class="controls">
+      <label>Color:</label>
+      <input type="color" id="colorPicker" value="#000000">
 
-    <label>Brush size:</label>
-    <input type="range" id="brushSize" min="1" max="50" value="5">
+      <label>Brush size:</label>
+      <input type="range" id="brushSize" min="1" max="50" value="5">
+    </div>
 
     <canvas id="drawArea" width="800" height="600"></canvas>
 
-    <br><br>
-    <button onclick="clearCanvas()">Clear</button>
-    <button onclick="downloadArt()">Save</button>
+    <div class="buttons">
+      <button onclick="clearCanvas()">Clear</button>
+      <button onclick="downloadArt()">Save</button>
+    </div>
   </div>
 
   <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.min.js"></script>
 </body>
 </html>
