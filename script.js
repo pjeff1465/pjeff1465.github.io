@@ -5,40 +5,53 @@ function showImage() {
     document.getElementById('myArt').style.display = 'block';
 }
 
-// Open tabs on Research page
-function openTab(name) {
-    document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
-    const tab = document.getElementById(name);
-    if (tab) tab.style.display = 'block';
-}
+// Only run if we are on the Research page
+const pdfViewerAI = document.getElementById('pdfViewerAI');
+const pdfViewerQuan = document.getElementById('pdfViewerQuan');
 
-// Event to render paper pdfs on research page
-window.addEventListener("load", () => {
-    function renderPDF(pdfUrl, containerId) {
-      const loadingTask = pdfjsLib.getDocument(pdfUrl);
-      loadingTask.promise.then(pdf => {
-        pdf.getPage(1).then(page => {
-          const scale = 1.5;
+if (pdfViewerAI || pdfViewerQuan) {
+
+  // Set PDF.js worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.10.120/pdf.worker.min.js';
+
+  function renderPDF(pdfUrl, containerId, scale = 1.5) {
+    const container = document.getElementById(containerId);
+    if (!container || container.hasChildNodes()) return; // render only once
+
+    pdfjsLib.getDocument(pdfUrl).promise.then(pdfDoc => {
+      for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+        pdfDoc.getPage(pageNum).then(page => {
           const viewport = page.getViewport({ scale });
-  
           const canvas = document.createElement('canvas');
-          document.getElementById(containerId).appendChild(canvas);
-  
+          canvas.style.display = 'block';
+          canvas.style.margin = '10px auto';
+          canvas.style.maxWidth = '100%';
+          container.appendChild(canvas);
+
           const context = canvas.getContext('2d');
           canvas.height = viewport.height;
           canvas.width = viewport.width;
-  
+
           page.render({ canvasContext: context, viewport: viewport });
         });
-      });
-    }
-  
-    // Render AI paper
-    renderPDF('/images/ai_paper.pdf', 'pdfViewerAI');
-  
-    // Render Quantum paper
-    renderPDF('/images/paper.pdf', 'pdfViewerQuan');
-});  
+      }
+    }).catch(err => console.error('PDF loading error:', err));
+  }
+
+  function openTab(name) {
+    document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
+    const tab = document.getElementById(name);
+    if (tab) tab.style.display = 'block';
+
+    if (name === 'AI') renderPDF('/images/ai_paper.pdf', 'pdfViewerAI');
+    if (name === 'quan') renderPDF('/images/paper.pdf', 'pdfViewerQuan');
+  }
+
+  // Open default tab
+  window.addEventListener('load', () => openTab('AI'));
+}
+
 
 // ================= PDF SLIDESHOW =================
 // used to create a slideshow on the about me page
