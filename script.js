@@ -1,6 +1,6 @@
 // ================= Global Functions =================
 
-// Show hidden image
+// Show hidden image (not using atm)
 function showImage() {
     document.getElementById('myArt').style.display = 'block';
 }
@@ -12,12 +12,40 @@ function openTab(name) {
     if (tab) tab.style.display = 'block';
 }
 
-
+// Event to render paper pdfs on research page
+window.addEventListener("load", () => {
+    function renderPDF(pdfUrl, containerId) {
+      const loadingTask = pdfjsLib.getDocument(pdfUrl);
+      loadingTask.promise.then(pdf => {
+        pdf.getPage(1).then(page => {
+          const scale = 1.5;
+          const viewport = page.getViewport({ scale });
+  
+          const canvas = document.createElement('canvas');
+          document.getElementById(containerId).appendChild(canvas);
+  
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+  
+          page.render({ canvasContext: context, viewport: viewport });
+        });
+      });
+    }
+  
+    // Render AI paper
+    renderPDF('/images/ai_paper.pdf', 'pdfViewerAI');
+  
+    // Render Quantum paper
+    renderPDF('/images/paper.pdf', 'pdfViewerQuan');
+});  
 
 // ================= PDF SLIDESHOW =================
+// used to create a slideshow on the about me page
 window.addEventListener("load", () => {
+    // only render if about me page is selected
     const pdfCanvas = document.getElementById('pdf-render');
-    if (!pdfCanvas) return; // Only run on the PDF page
+    if (!pdfCanvas) return; 
 
     const ctx = pdfCanvas.getContext('2d');
     const url = '/images/final_portfolio_JeffriesP_art1120.pdf';

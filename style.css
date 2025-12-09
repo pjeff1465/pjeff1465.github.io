@@ -50,9 +50,18 @@ body {
 }
 
 /* ==================== HOME PAGE ========================= */
+.description {
+  text-align: center;
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+
 .preview-section {
   text-align: center;
   padding: 40px;
+}
+
+.preview-section h2 {
+  color: rgb(200, 80, 255);
 }
 
 .preview-grid {
@@ -291,10 +300,47 @@ body {
 }
 
 /* ======================== RESEARCH PAGE ========================= */
+.research h2 {
+  text-align: center;
+  padding-top: 2%;
+}
+
 .dbrp_paper {
     text-align: center; 
     align-items: center;
 }
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 3%;
+}
+
+.tablink {
+  padding: 30px 50px;
+  font-size: clamp(1rem, 2vw, 2rem);
+  background-color: #358439;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tablink:hover {
+  background-color: #245927;
+}
+
+.ai p {
+  text-align: center;
+}
+
+.main p {
+  text-align: center;
+}
+
+
 /* ======================= NAV BAR ====================== */
 /* Navigation Bar */
 /* Style the top navigation bar */
