@@ -5,11 +5,26 @@ function openTab(name) {
     document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
     const tab = document.getElementById(name);
     if (tab) tab.style.display = 'block';
-  }
+}
   
-  // Open default tab
-  window.addEventListener('load', () => openTab('AI'));
+// Open default tab
+window.addEventListener('load', () => openTab('AI'));
+
+const frames = [
+    '/images/butterfly/butterfly1.png',
+    '/images/butterfly/butterfly2.png',
+    '/images/butterfly/butterfly3.png',
+    '/images/butterfly/butterfly4.png'      
+];
   
+let currentFrame = 0;
+const butterfly = document.getElementById('butterfly');
+
+setInterval(() => {
+    currentFrame = (currentFrame + 1) % frames.length; // cycles through pngs
+    butterfly.src = frames[currentFrame];
+}, 150); // change butterfly photo every 150 milliseconds (1.5 s)
+
   // ================= PDF SLIDESHOW (About Me Page) =================
   window.addEventListener("load", () => {
       const pdfCanvas = document.getElementById('pdf-render');

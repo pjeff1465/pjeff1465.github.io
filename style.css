@@ -207,6 +207,19 @@ body {
   margin-top: 10px;      /* spacing above subtitle */
 }
 
+.butterfly {
+  position: fixed;
+  width: 200px; /* Adjust size as needed */
+  top: 50%; /* Vertical position */
+  right: 0;
+  animation: fly-across 10s linear infinite;
+}
+
+@keyframes fly-across {
+  0% { right: -100px; }
+  100% { right: 100%; }
+}
+
 /* ==== SLIDESHOW ======= */
 
 #pdf-render {
