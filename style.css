@@ -155,6 +155,19 @@ nav, nav a, nav ul, nav li, nav button {
 
 
 /* ================== About me Page ==================== */
+.about-sparkle {
+  background: linear-gradient(90deg, #ff98f6, #da45e2, #3b0725);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
 .about-background {
   background-color: #fce4ff; /* whatever color you want */
 }
@@ -324,12 +337,12 @@ nav, nav a, nav ul, nav li, nav button {
 }
 
 .sparkle-text {
-  background: linear-gradient(90deg, #ff98f6, #da45e2, #fff);
+  background: linear-gradient(90deg, #ff98f6, #da45e2, #f8c3fa);
   background-size: 200% auto;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 2s linear infinite;
 }
 
 @keyframes shimmer {

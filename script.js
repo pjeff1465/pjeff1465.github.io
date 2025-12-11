@@ -23,7 +23,7 @@ const butterfly = document.getElementById('butterfly');
 setInterval(() => {
     currentFrame = (currentFrame + 1) % frames.length; // cycles through pngs
     butterfly.src = frames[currentFrame];
-}, 150); // change butterfly photo every 150 milliseconds (.15 s)
+}, 130); // change butterfly photo every 150 milliseconds (.15 s)
 
   // ================= PDF SLIDESHOW (About Me Page) =================
   window.addEventListener("load", () => {
