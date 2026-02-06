@@ -7,23 +7,47 @@ function openTab(name) {
     if (tab) tab.style.display = 'block';
 }
   
+// PROJECTS
 // Open default tab
 window.addEventListener('load', () => openTab());
 
-const frames = [
-    '/images/butterfly/butterfly1.png',
-    '/images/butterfly/butterfly2.png',
-    '/images/butterfly/butterfly3.png',
-    '/images/butterfly/butterfly4.png'      
-];
-  
-let currentFrame = 0;
-const butterfly = document.getElementById('butterfly');
+    document.addEventListener("DOMContentLoaded", () => {
 
-setInterval(() => {
-    currentFrame = (currentFrame + 1) % frames.length; // cycles through pngs
-    butterfly.src = frames[currentFrame];
-}, 130); // change butterfly photo every 150 milliseconds (.15 s)
+    // for the projects page
+    const loader = document.getElementById("loader");
+    const image = document.getElementById("finalText")
+
+    if (!loader || !finalText || !writeez) return;
+
+    let dots = 0;
+    const maxDots = 3;
+    const intervalTime = 500;
+
+    const interval = setInterval(() => {
+        dots = (dots % maxDots) + 1;
+        loader.textContent = "You chose to view" + ".".repeat(dots);
+    }, intervalTime);
+
+    setTimeout(() => {
+        clearInterval(interval);
+
+        loader.style.display = "none";
+
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+
+        // show final text
+        finalText.style.display = "block";
+
+        setTimeout(() => {
+            writeez.style.display = "block";
+        }, 1000);
+        
+    }, intervalTime * maxDots * 3);
+});
 
   // ================= PDF SLIDESHOW (About Me Page) =================
   window.addEventListener("load", () => {
@@ -67,6 +91,27 @@ setInterval(() => {
           pageNum++;
           renderPage(pageNum);
       };
+  });
+
+
+  // butterfly
+  document.addEventListener("DOMContentLoaded", () => {
+    const butterfly = document.getElementById('butterfly');
+    if (!butterfly) return;
+
+    let currentFrame = 0;
+    const frames = [
+        '/images/butterfly/butterfly1.png',
+        '/images/butterfly/butterfly2.png',
+        '/images/butterfly/butterfly3.png',
+        '/images/butterfly/butterfly4.png'      
+    ];
+      
+    setInterval(() => {
+        currentFrame = (currentFrame + 1) % frames.length; // cycles through pngs
+        butterfly.src = frames[currentFrame];
+    }, 130); // change butterfly photo every 150 milliseconds (.15 s)
+    
   });
   
   // ================= Drawing Canvas =================

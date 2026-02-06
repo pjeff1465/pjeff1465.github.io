@@ -102,6 +102,26 @@ nav, nav a, nav ul, nav li, nav button {
 
 
 /* ===================== PROJECTS PAGE ====================== */
+.project-header {
+  text-align: center;
+}
+
+#loader {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#finalText {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  display: none;
+  color: #da45e2;
+}
+
 .writeez {
     max-width: 800px;
     margin: 0 auto;
@@ -332,9 +352,6 @@ nav, nav a, nav ul, nav li, nav button {
 }
 
 /* ======================== RESEARCH PAGE ========================= */
-.research {
-  background-color: rgba(228, 228, 228, 0.737);
-}
 
 .sparkle-text {
   background: linear-gradient(90deg, #ff98f6, #da45e2, #f8c3fa);

@@ -23,46 +23,56 @@
     <a href="links.html">Links</a>
   </div>
 
-  <div class="row">
-    <div class="writeez">
-      <h1>WriteEZ</h1>
-      <p>WriteEZ is a dictation web application used to help make writing online papers a little easier for people with disabilites that make typing hard or simply people who just prefer not to type.</p>
-      <p>WriteEZ has all the privacy, accessibility, and easy-to-use UI you will ever need for typing any form of documents online! With all the features being local on your machine your data is guaranteed to be safe! (since it never leaves your machine)</p>
-      <p>Along with privacy this web app can be fully utilized without any connection to the internet!</p>
-      <p>This web app can be fully traveresed with either mouse clicks or keyboard commands, (If you are unsure how to use the keyboard commands simply press the 'h' key to open the fully audio help menu!)</p>
-      <br>
-      <p>This app has it all! With the AI integration you can get it all done in one place instead of having to visit multiple sites! Just simply upload an audio recording and AI will parse out the recording and fully create and format a paper for you!</p>
-      <p>If writing a paper is not what you are looking for this app has many other uses. Stressed out with all the stuff you need to get done? Take a recording describing all the things you need to get done and have AI create a to-do list for you! If you need some time to think in the audio recording that is ok! AI will only keep the important information ;)</p>
-      <br>
+  <div class="project-header">
+    <h2>Pick a Project!</h2>
+  </div>
 
-      Home page of WriteEZ app
-      <img src="/images/home_page.png" alt="Home page of the WriteEZ app">
+  <div class="tabs">
+    <button class="tablink" onclick="openTab('WriteEZ')">WriteEZ</button>
+    <button class="tablink" onclick="openTab('BatSignal')">Bat Signal</button>
+  </div>
 
-      Dictation page of WriteEZ app
-      <img src="/images/dictation_page.png" alt="Dictation page!">
+  <hr>
 
-      Clean up with AI page
-      <img src="/images/clean_up_page.png" alt="Clean up your paper with AI">
+  <div id="WriteEZ" class="tabcontent">
+    <div id="loader">You chose to view</div>
+    <div id="finalText">WriteEZ!</div>
 
-      Create a paper page
-      <img src="/images/paper_page.jpg" alt="Create a paper page!">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
+      <div class="writeez" id="writeez" style="display: none;">
+        <p>WriteEZ is a dictation web application used to help make writing online papers a little easier for people with disabilites that make typing hard or simply people who just prefer not to type.</p>
+        <p>WriteEZ has all the privacy, accessibility, and easy-to-use UI you will ever need for typing any form of documents online! With all the features being local on your machine your data is guaranteed to be safe! (since it never leaves your machine)</p>
+        <p>Along with privacy this web app can be fully utilized without any connection to the internet!</p>
+        <p>This web app can be fully traveresed with either mouse clicks or keyboard commands, (If you are unsure how to use the keyboard commands simply press the 'h' key to open the fully audio help menu!)</p>
+        <br>
+        <p>This app has it all! With the AI integration you can get it all done in one place instead of having to visit multiple sites! Just simply upload an audio recording and AI will parse out the recording and fully create and format a paper for you!</p>
+        <p>If writing a paper is not what you are looking for this app has many other uses. Stressed out with all the stuff you need to get done? Take a recording describing all the things you need to get done and have AI create a to-do list for you! If you need some time to think in the audio recording that is ok! AI will only keep the important information ;)</p>
+        <br>
+  
+        Home page of WriteEZ app
+        <img src="/images/home_page.png" alt="Home page of the WriteEZ app">
+  
+        Dictation page of WriteEZ app
+        <img src="/images/dictation_page.png" alt="Dictation page!">
+  
+        Clean up with AI page
+        <img src="/images/clean_up_page.png" alt="Clean up your paper with AI">
+  
+        Create a paper page
+        <img src="/images/paper_page.jpg" alt="Create a paper page!">
+  
+      </div> 
+  
+  <div id="BatSignal" class="tabcontent">
+    <h2>You chose to view...</h2>
+    <div class="sparkle-text">
+      <h2>Bat Signal</h2>
     </div>
-    
-    <!-- <div class="main">
-      You can fill this in later
-      <p>Welcome to my site!</p>
-      <img id="myArt" src="images/drawing.jpg" style="display: none;" />
-      <button onclick="showImage()">Reveal Drawing</button>
-
-    </div> -->
-
-    <div class="meal_plan">
-      
-    </div>
+    <h2> LoRa devices</h2>
   </div>
 
   <!-- JavaScript Link -->
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
