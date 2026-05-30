@@ -9,27 +9,64 @@ function openTab(name) {
   
 // PROJECTS
 // Open default tab
-window.addEventListener('load', () => openTab());
 
-    document.addEventListener("DOMContentLoaded", () => {
+// global variables used to make sure DOM transitions before animation runs and animation resets previous interals/ timeouts
+let activeInterval = null;
+let activeTimeout = null;
 
-    // for the projects page
-    const loader = document.getElementById("loader");
-    const image = document.getElementById("finalText")
+function openTab(tabName) {
 
-    if (!loader || !finalText || !writeez) return;
+    // hide all tabs
+    const tabs = document.querySelectorAll(".tabcontent");
+
+    tabs.forEach(tab => {
+        tab.style.display = "none";
+    });
+
+    // show selected tab
+    const active = document.getElementById(tabName)
+    active.style.display = "block";
+    
+    // wait until browser sets up tab
+    requestAnimationFrame(() => {
+        // run animations/effects for specific tabs
+        if (tabName === "WriteEZ") {
+            runAnimation(
+                "writeez-loader", "writeez-finalText");
+        }
+
+        if (tabName === "BatSignal") {
+            runAnimation("batsignal-loader", "batsignal-finalText");
+        }
+    });
+}
+
+function runAnimation(loaderId, finalTextId) {
+
+    const loader = document.getElementById(loaderId);
+    const finalText = document.getElementById(finalTextId);
+
+    if (!loader || !finalText) return;
+
+    // kill previous animation
+    if (activeInterval) clearInterval(activeInterval);
+    if (activeTimeout) clearTimeout(activeTimeout);
+
+    // reset states
+    loader.style.display = "block";
+    finalText.style.display = "none";
 
     let dots = 0;
-    const maxDots = 3;
     const intervalTime = 500;
 
-    const interval = setInterval(() => {
-        dots = (dots % maxDots) + 1;
+    activeInterval = setInterval(() => {
+        dots = (dots % 3) + 1;
         loader.textContent = "You chose to view" + ".".repeat(dots);
     }, intervalTime);
 
-    setTimeout(() => {
-        clearInterval(interval);
+    activeTimeout = setTimeout(() => {
+
+        clearInterval(activeInterval);
 
         loader.style.display = "none";
 
@@ -39,15 +76,10 @@ window.addEventListener('load', () => openTab());
             origin: { y: 0.6 }
         });
 
-        // show final text
         finalText.style.display = "block";
 
-        setTimeout(() => {
-            writeez.style.display = "block";
-        }, 1000);
-        
-    }, intervalTime * maxDots * 3);
-});
+    }, intervalTime * 6);
+}
 
   // ================= PDF SLIDESHOW (About Me Page) =================
   window.addEventListener("load", () => {
