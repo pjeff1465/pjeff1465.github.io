@@ -33,9 +33,16 @@
     </div>
   </header>
 
-  <img id="butterfly" src="/images/butterfly/butterfly1.png" alt="butterfly" class="butterfly">
+  <div class="about-flex-container">
+    <div class="about-flex-item">
+      <img src="/images/about_me.png" alt="about me portfolio page" class="about-me-img">
+    </div>
+  </div>
 
+  <img id="butterfly" src="/images/butterfly/butterfly1.png" alt="butterfly" class="butterfly">
+  
   <div id="pdf-container">
+    <h2> My 2026 Portfolio for creative works class! </h2>
     <canvas id="pdf-render"></canvas>
     <div class="pdf-controls">
       <button onclick="prevPage()">Previous</button>
@@ -55,7 +62,8 @@
       <input type="range" id="brushSize" min="1" max="50" value="5">
     </div>
 
-    <canvas id="drawArea" width="800" height="600"></canvas>
+    <!-- bc hard set width + height canvas area does not scale -->
+    <canvas id="drawArea" width="1000" height="800"></canvas>
 
     <div class="buttons">
       <button onclick="clearCanvas()">Clear</button>

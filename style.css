@@ -254,6 +254,31 @@ nav, nav a, nav ul, nav li, nav button {
   animation: fly-across 10s linear infinite;
 }
 
+.about-flex-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  /* gap:16px; add spacing between lines */
+  width: 100%; /* Spans full width of the window */
+}
+
+.about-flex-item {
+  display: flex;
+  /* flex: 1 1 300px; grow with base width (when shrinking) 300px */
+  /* min-width: 0; */
+  justify-content: center;
+  width: 100%;
+}
+
+.about-me-img {
+  max-width: 100%; /* fills entire width of flex item parent */
+  max-width: 80vh; /* prevent image from overflowing its box */
+  height: auto; /* locks the aspect ratio so it scales proportionally */
+  width: auto;
+  display: block; 
+  border-radius: 8px;
+}
+
 @keyframes fly-across {
   0% { right: -100px; }
   100% { right: 100%; }
@@ -262,8 +287,8 @@ nav, nav a, nav ul, nav li, nav button {
 /* ==== SLIDESHOW ======= */
 
 #pdf-render {
-  width: 80%;        /* shrink to 80% of page width */
-  max-width: 900px;  /* prevent huge PDFs */
+  width: 100%;        /* shrink to 80% of page width */
+  max-width: 1300px;  /* prevent huge PDFs */
   height: auto;      /* keep proportions */
   display: block;
   margin: 20px auto;
@@ -272,11 +297,15 @@ nav, nav a, nav ul, nav li, nav button {
 #pdf-container {
   text-align: center;
   margin: 40px auto;
-  max-width: 900px;
+  max-width: 1500px;
   border: 3px solid #333;
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
   padding: 15px;
+}
+
+#pdf-container h2 {
+  color:rgb(251, 31, 193)
 }
 
 .pdf-controls {
@@ -318,7 +347,7 @@ nav, nav a, nav ul, nav li, nav button {
   padding: 20px;
   background-color: rgba(255,255,255,0.9); /* slightly transparent so background shows */
   border-radius: 15px;
-  max-width: 900px;
+  max-width: 1500px;
 }
 
 .draw_area canvas {
