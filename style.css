@@ -141,7 +141,22 @@ nav, nav a, nav ul, nav li, nav button {
 .writeez h1 {
     color: #de3ed0;
 }
-  
+
+.batsignal {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.BatSignalLogo {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+}
   /* Styling for tablets */
   @media (max-width: 1024px) {
     .writeez {

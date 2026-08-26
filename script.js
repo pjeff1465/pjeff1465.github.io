@@ -28,17 +28,10 @@ function openTab(tabName) {
     active.style.display = "block";
     
     // wait until browser sets up tab
-    requestAnimationFrame(() => {
         // run animations/effects for specific tabs
-        if (tabName === "WriteEZ") {
-            runAnimation(
-                "writeez-loader", "writeez-finalText");
-        }
-
-        if (tabName === "BatSignal") {
-            runAnimation("batsignal-loader", "batsignal-finalText");
-        }
-    });
+    if (tabName === "WriteEZ" || tabName === "BatSignal") {
+        confetti();
+    }
 }
 
 function runAnimation(loaderId, finalTextId) {

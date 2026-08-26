@@ -39,12 +39,10 @@
   <hr>
 
   <div id="WriteEZ" class="tabcontent">
-    <div id="writeez-loader">You chose to view</div>
-    <div id="writeez-finalText">WriteEZ!</div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-      <div class="writeez" id="writeez" style="display: none;">
+      <div class="writeez" id="writeez">
         <p>WriteEZ is a dictation web application used to help make writing online papers a little easier for people with disabilites that make typing hard or simply people who just prefer not to type.</p>
         <p>WriteEZ has all the privacy, accessibility, and easy-to-use UI you will ever need for typing any form of documents online! With all the features being local on your machine your data is guaranteed to be safe! (since it never leaves your machine)</p>
         <p>Along with privacy this web app can be fully utilized without any connection to the internet!</p>
@@ -67,11 +65,21 @@
         <img src="/images/paper_page.jpg" alt="Create a paper page!">
   
       </div> 
-  
-  <div id="BatSignal" class="tabcontent">
-    <div id="batsignal-loader">You chose to view</div>
-    <div id="batsignal-finalText">Bat Signal!</div>
+    </div>
 
+  <div id="BatSignal" class="tabcontent">
+    
+    <div id="BatSignalLogo"></div>
+      <img src="/images/batsignal.png" alt="BatSignal Logo">
+    </div>
+
+    <div class="batsignal" id="batsignal">
+      <p>A LoRa and BLE-based system for safety and proximity awareness in cave exploration.</p>
+      <p>BatSignal is a LoRa-based proximity and communication system designed to help keep a team of spelunkers safe underground. It uses short-range wireless communication and proximity detection via LoRa (Long Range) radios and Bluetooth Low Energy (BLE).</p>
+      <p>Three LoRa nodes communicate with each other to measure RSSI (signal strength), which is used to estimate relative proximity between team members.</p>
+      <p>With built-in alert systems and emergency button functionality, this project enhances team safety by warning users when a memebr is out of range or when an emergency signal is triggered.</p>
+      <p>A companion iOS app connects via BLE to one LoRa node and displays real-time proximity data visually.</p>
+    </div>
   </div>
 
   <!-- JavaScript Link -->
