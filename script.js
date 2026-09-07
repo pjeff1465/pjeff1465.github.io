@@ -1,34 +1,48 @@
 // ================= Global Functions =================
 
 // Open tabs on Research page
-function openTab(name) {
-    document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
-    const tab = document.getElementById(name);
-    if (tab) tab.style.display = 'block';
-}
+// function openTab(name) {
+//     document.querySelectorAll('.tabcontent').forEach(div => div.style.display = 'none');
+//     const tab = document.getElementById(name);
+//     if (tab) tab.style.display = 'block';
+
+//     // wait until browser sets up tab
+//     // run animations/effects for specific tabs
+//     if (tabName === "WriteEZ" || tabName === "BatSignal") {
+//         confetti();
+//     }
+// }
   
 // PROJECTS
 // Open default tab
 
 // global variables used to make sure DOM transitions before animation runs and animation resets previous interals/ timeouts
+// let activeInterval = null;
+// let activeTimeout = null;
+
+// PROJECTS
+// Open default tab
+
 let activeInterval = null;
 let activeTimeout = null;
 
 function openTab(tabName) {
 
-    // hide all tabs
+    // Hide all tabs
     const tabs = document.querySelectorAll(".tabcontent");
 
     tabs.forEach(tab => {
         tab.style.display = "none";
     });
 
-    // show selected tab
-    const active = document.getElementById(tabName)
-    active.style.display = "block";
-    
-    // wait until browser sets up tab
-        // run animations/effects for specific tabs
+    // Show selected tab
+    const active = document.getElementById(tabName);
+
+    if (active) {
+        active.style.display = "block";
+    }
+
+    // Run animations/effects for specific tabs
     if (tabName === "WriteEZ" || tabName === "BatSignal") {
         confetti();
     }

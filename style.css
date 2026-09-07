@@ -148,6 +148,7 @@ nav, nav a, nav ul, nav li, nav button {
   font-size: 18px;
   line-height: 1.6;
   text-align: center;
+  display: block;
 }
 
 .BatSignalLogo {
